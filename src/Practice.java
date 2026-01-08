@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -105,8 +106,8 @@ public class Practice {
    * 
    * Once you finish, WRITE TESTS FOR IT in PracticeTest.java
    * 
-   * Time Complexity: 
-   * Space Complexity: 
+   * Time Complexity:  o(n^2) where n = nums.length
+   * Space Complexity:  o(1)
    * 
    * @param nums An array of integers
    * @return the integer that shows up most commonly
@@ -114,6 +115,33 @@ public class Practice {
   public static int mostCommonSpaceEfficient(int[] nums) {
     // TODO: Complete this method with an implementation that runs
     // in O(1) space.
-    return -1;
+ 
+    // variables to update
+    int mostFreqInt = nums[0];
+    int maxCount = 0;
+
+    // loop through a single num
+    for(int num: nums){
+      // store that num
+      int numToCheck = num;
+      int count = 0;
+
+      // check to see if the num to check
+      for(int i = 0; i < nums.length; i++){
+        if(nums[i] == numToCheck){
+          count++;
+        }
+      }
+
+      // update values
+      if (count > maxCount) {
+        mostFreqInt = numToCheck;
+        maxCount = count;
+      }
+    
+    }
+
+    // return the mostFreqInt
+    return mostFreqInt;
   }
 }
